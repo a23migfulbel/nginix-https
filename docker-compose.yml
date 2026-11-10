@@ -3,10 +3,6 @@ services:
     build: .
     ports:
       - 8080:80
-
-  certbot:
-    image: certbot/certbot
-
-  volumes:
-    ./data/certbot/conf:/etc/letsencrypt
-    ./data/certbot/www:/var/www/certbot
+      - 8443:443
+    volumes:
+      - ./certs:/etc/nginx/certs:ro
